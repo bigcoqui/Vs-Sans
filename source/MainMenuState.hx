@@ -12,7 +12,9 @@ import flixel.tweens.FlxEase;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+#if newgrounds
 import io.newgrounds.NG;
+#end
 import lime.app.Application;
 #if desktop
 import Discord.DiscordClient;
@@ -114,6 +116,10 @@ class MainMenuState extends MusicBeatState
 			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
 
 		changeItem();
+		
+		#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
 
 		super.create();
 	}
